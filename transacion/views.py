@@ -10,7 +10,7 @@ class TransactionListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         user = self.request.user
-        wallet = user.walet
+        wallet = getattr(user, 'walet', None)
 
         transaction_amount = serializer.validated_data['amount']
 
@@ -25,6 +25,9 @@ class TransactionDetailView(generics.UpdateAPIView):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return self.queryset.filter(user__user=self.request.user)
 
     def perform_update(self, serializer):
         return serializer.save(user=self.request.user)
