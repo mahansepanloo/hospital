@@ -4,4 +4,4 @@ from .models import Plan
 class PlanSerializer(serializers.ModelSerializer):
     class Meta:
         model = Plan
-        fields = '__all__'
+        exclude  = ['user']

@@ -5,3 +5,9 @@ class WaletSerializer(serializers.ModelSerializer):
     class Meta:
         model = Walet
         fields = '__all__'
+
+
+class UpateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Walet
+        fields = ['wallet',]
