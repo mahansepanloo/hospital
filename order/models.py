@@ -7,6 +7,7 @@ class Orders(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='orders')
     price = models.BigIntegerField()
     date = models.DateTimeField(auto_now_add=True)
+    paid =models.BooleanField(default=False)
 
 
 
