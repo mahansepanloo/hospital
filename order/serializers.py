@@ -1,13 +1,7 @@
 from rest_framework import serializers
-from .models import Walet
+from .models import Orders
 
-class WaletSerializer(serializers.ModelSerializer):
+class OrdersSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Walet
-        fields = '__all__'
-
-
-class UpateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Walet
-        fields = ['wallet',]
+        model = Orders
+        fields = ['id', 'bimar', 'service', 'price', 'date']

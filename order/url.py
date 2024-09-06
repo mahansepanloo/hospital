@@ -1,7 +1,8 @@
-from django.urls import path  
-from .views import WaletListCreateView,WaletUpdate
+from django.urls import path
+from .views import OrdersViewSet
 
-urlpatterns = [  
-    path('wallets/', WaletListCreateView.as_view(), name='walet-list-create'),  
-    path('wallets/<int:pk>/',WaletUpdate.as_view(), name='walet-detail'),
+
+
+urlpatterns = [
+    path('service',OrdersViewSet.as_view()),
 ]
