@@ -9,3 +9,7 @@ class Service(models.Model):
     time = models.TimeField()
     price = models.IntegerField()
 
+    def __str__(self):
+        return self.type
+
+
