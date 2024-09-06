@@ -3,7 +3,7 @@ from .models import Service, Cat
 from .serializers import ServiceSerializer
 from .permission import IsNurse
 
-class ServiceListAPIView(ListAPIView):
+class ServiceListAPIView(ListAPIView): #mahan
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
     permission_classes = [IsNurse]
@@ -54,3 +54,5 @@ class CatDeleteAPIView(DestroyAPIView):
     queryset = Cat.objects.all()
     serializer_class = ServiceSerializer
     permission_classes = [IsNurse]
+
+
