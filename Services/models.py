@@ -6,14 +6,13 @@ class Cat(models.Model):
 
 class Service(models.Model):
     category = models.ForeignKey(Cat, on_delete= models.CASCADE)
-    type = models.CharField(max_length=250)
     bimar = models.ForeignKey('Bimar', on_delete= models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
     price = models.IntegerField()
 
     def __str__(self):
-        return self.type
+        return self.category.name
 
 
 

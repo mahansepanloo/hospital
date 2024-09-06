@@ -1,13 +1,16 @@
-from rest_framework import serializers
-from .models import Walet
+from rest_framework.serializers import ModelSerializer  
+from .models import Service, Cat
 
-class WaletSerializer(serializers.ModelSerializer):
+
+class CatSerializer(ModelSerializer):
     class Meta:
-        model = Walet
+        model = Cat
         fields = '__all__'
 
 
-class UpateSerializer(serializers.ModelSerializer):
+
+class ServiceSerializer(ModelSerializer):
     class Meta:
-        model = Walet
-        fields = ['wallet',]
+        model = Service
+        fields = '__all__'
+
