@@ -12,10 +12,8 @@ class Service(models.Model):
     time = models.TimeField()
     price = models.IntegerField()
 
-<<<<<<< HEAD
-=======
     def __str__(self):
         return self.type
->>>>>>> ea39fdac1158f0adcf4b2659a2cf7484d10ee1e5
+
 
 
