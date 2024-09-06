@@ -30,7 +30,7 @@ class WaletListCreateView(generics.ListCreateAPIView):
 
 class WaletRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Walet.objects.all()
-    serializer_class = UpdateSerializer
+    serializer_class = UpateSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
