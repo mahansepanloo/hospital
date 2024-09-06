@@ -6,16 +6,25 @@ from Services.models import Service
 from accounts.models import Bimar
 from Services.permission import IsNurse
 from django.core.exceptions import ValidationError
+from rest_framework.permissions import IsAuthenticated
 
-class OrderCreateAPIView(generics.CreateAPIView):
+class Shoeordr(generics.ListAPIView):
     queryset = Orders.objects.all()
     serializer_class = OrdersSerializer
     permission_classes = [IsNurse]
 
+class OrderCreateAPIView(generics.CreateAPIView):
+    queryset = Orders.objects.all()
+    serializer_class = OrdersSerializer
+    permission_classes = [IsAuthenticated]
+
     def create(self, request, *args, **kwargs):
-        bimar_id = request.data.get('bimar_id')
+        bimar_id = request.user.id
         service_id = request.data.get('service_id')
         price = request.data.get('price')
+
+        if not service_id or not price:
+            return Response({"error": "Service ID and price are required."}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
             bimar_instance = Bimar.objects.get(id=bimar_id)
