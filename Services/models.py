@@ -6,7 +6,7 @@ class Cat(models.Model):
 
 class Service(models.Model):
     category = models.ForeignKey(Cat, on_delete= models.CASCADE)
-    bimar = models.ForeignKey('Bimar', on_delete= models.CASCADE)
+    bimar = models.ForeignKey(Bimar, on_delete= models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
     price = models.IntegerField()
